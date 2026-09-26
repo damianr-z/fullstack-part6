@@ -1,12 +1,23 @@
+import { useAnecdoteActions } from '../store';
+
 const AnecdoteForm = () => {
+  const { addAnecdote } = useAnecdoteActions();
+
+  const addAnecdoteHandlder = (e) => {
+    e.preventDefault();
+    const content = e.target.anecdote.value;
+    addAnecdote(content);
+    e.target.reset();
+  };
+
   return (
     <>
       <h2>create new</h2>
-      <form>
+      <form onSubmit={addAnecdoteHandlder}>
         <div>
-          <input data-testid="new" />
+          <input name="anecdote" data-testid="new" />
         </div>
-        <button>create</button>
+        <button type="submit">create</button>
       </form>
     </>
   );
