@@ -1,4 +1,4 @@
-import { useAnecdotes, useVotes, useAnecdoteActions } from '../store';
+import { useAnecdotes, useAnecdoteActions } from '../store';
 
 const AnecdoteList = () => {
   const anecdotes = useAnecdotes();
@@ -9,7 +9,13 @@ const AnecdoteList = () => {
     console.log('vote', id);
   };
 
+  
+  if (anecdotes.length === 0) {
+    return <div>no anecdote found</div>;
+  }
+
   const sortedAnecdotes = anecdotes.toSorted((a, b) => b.votes - a.votes);
+
 
   return (
     <>
