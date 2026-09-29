@@ -2,14 +2,14 @@ import { create } from 'zustand';
 import { useShallow } from 'zustand/shallow';
 import noteService from './services/anecdotes';
 
+/// Previous logic used to create an object from a plain string (anecdote)
+// const getId = () => (100000 * Math.random()).toFixed(0);
 
-const getId = () => (100000 * Math.random()).toFixed(0);
-
-const asObject = (anecdote) => ({
-  content: anecdote,
-  id: getId(),
-  votes: 0,
-});
+// const asObject = (anecdote) => ({
+//   content: anecdote,
+//   id: getId(),
+//   votes: 0,
+// });
 
 const useAnecdoteStore = create((set) => ({
   anecdotes: [],
@@ -20,6 +20,10 @@ const useAnecdoteStore = create((set) => ({
       const anecdotes = await noteService.getAll();
       set(() => ({ anecdotes }));
     },
+    addAnecdote: async (content) => {
+      const newAnecdote = await noteService.createNew(content);
+      set((state) => ({ anecdotes: [...state.anecdotes, newAnecdote] }));
+    },
     addVote: (id) =>
       set((state) => ({
         anecdotes: state.anecdotes.map((anecdote) =>
@@ -28,8 +32,6 @@ const useAnecdoteStore = create((set) => ({
             : anecdote,
         ),
       })),
-    addAnecdote: (content) =>
-      set((state) => ({ anecdotes: [...state.anecdotes, asObject(content)] })),
     setFilter: (value) => set(() => ({ filter: value })),
   },
 }));
