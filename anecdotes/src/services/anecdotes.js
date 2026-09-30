@@ -11,7 +11,7 @@ const getAll = async () => {
 const update = async (id, anecdote) => {
   const response = await fetch(`${baseUrl}/${id}`, {
     method: 'PUT',
-    headers: {'Content-Type': 'application/json'},
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(anecdote),
   });
 
@@ -22,12 +22,11 @@ const update = async (id, anecdote) => {
   return await response.json();
 };
 
-
 const createNew = async (content) => {
   const response = await fetch(baseUrl, {
     method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({content, important: false}),
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ content, votes: 0 }),
   });
 
   if (!response.ok) {
@@ -37,4 +36,15 @@ const createNew = async (content) => {
   return await response.json();
 };
 
-export default { getAll, createNew, update };
+const remove = async (id) => {
+  const response = await fetch(`${baseUrl}/${id}`, {
+    method: 'DELETE',
+  });
+  if (!response.ok) {
+    throw new Error('Failed to delete anecdote');
+  }
+
+  return await response.json();
+};
+
+export default { getAll, createNew, update, remove };

@@ -15,7 +15,7 @@ const useAnecdoteStore = create((set, get) => ({
   anecdotes: [],
   filter: '',
   notification: '',
-  // DONE 6.2
+
   actions: {
     initialize: async () => {
       const anecdotes = await noteService.getAll();
@@ -25,6 +25,14 @@ const useAnecdoteStore = create((set, get) => ({
       const newAnecdote = await noteService.createNew(content);
       set((state) => ({ anecdotes: [...state.anecdotes, newAnecdote] }));
       get().actions.setNotification('a new anecdote added');
+    },
+    deleteAnecdote: async (id) => {
+      if (!id) return null;
+      await noteService.remove(id);
+      set((state) => ({
+        anecdotes: state.anecdotes.filter((anecdote) => anecdote.id !== id),
+      }));
+      get().actions.setNotification('anecdote was deleted');
     },
     addVote: async (id) => {
       const anecdote = get().anecdotes.find((anecdote) => anecdote.id === id);
