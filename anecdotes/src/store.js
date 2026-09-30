@@ -11,7 +11,7 @@ import noteService from './services/anecdotes';
 //   votes: 0,
 // });
 
-const useAnecdoteStore = create((set) => ({
+const useAnecdoteStore = create((set, get) => ({
   anecdotes: [],
   filter: '',
   // DONE 6.2
@@ -24,14 +24,19 @@ const useAnecdoteStore = create((set) => ({
       const newAnecdote = await noteService.createNew(content);
       set((state) => ({ anecdotes: [...state.anecdotes, newAnecdote] }));
     },
-    addVote: (id) =>
+    addVote: async (id) => {
+      const anecdote = get().anecdotes.find((anecdote) => anecdote.id === id);
+      if (!anecdote) return;
+      const updatedAnecdote = await noteService.update(id, {
+        ...anecdote,
+        votes: anecdote.votes + 1,
+      });
       set((state) => ({
-        anecdotes: state.anecdotes.map((anecdote) =>
-          anecdote.id === id
-            ? { ...anecdote, votes: anecdote.votes + 1 }
-            : anecdote,
+        anecdotes: state.anecdotes.map((bendAnecdote) =>
+          bendAnecdote.id === id ? updatedAnecdote : bendAnecdote,
         ),
-      })),
+      }));
+    },
     setFilter: (value) => set(() => ({ filter: value })),
   },
 }));

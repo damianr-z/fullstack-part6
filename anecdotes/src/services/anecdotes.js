@@ -8,6 +8,21 @@ const getAll = async () => {
   return await response.json();
 };
 
+const update = async (id, anecdote) => {
+  const response = await fetch(`${baseUrl}/${id}`, {
+    method: 'PUT',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(anecdote),
+  });
+
+  if (!response.ok) {
+    throw new Error('Failed to update anecdote');
+  }
+
+  return await response.json();
+};
+
+
 const createNew = async (content) => {
   const response = await fetch(baseUrl, {
     method: 'POST',
@@ -22,4 +37,4 @@ const createNew = async (content) => {
   return await response.json();
 };
 
-export default { getAll, createNew };
+export default { getAll, createNew, update };
