@@ -14,6 +14,7 @@ import noteService from './services/anecdotes';
 const useAnecdoteStore = create((set, get) => ({
   anecdotes: [],
   filter: '',
+  notification: '',
   // DONE 6.2
   actions: {
     initialize: async () => {
@@ -23,6 +24,7 @@ const useAnecdoteStore = create((set, get) => ({
     addAnecdote: async (content) => {
       const newAnecdote = await noteService.createNew(content);
       set((state) => ({ anecdotes: [...state.anecdotes, newAnecdote] }));
+      get().actions.setNotification('a new anecdote added');
     },
     addVote: async (id) => {
       const anecdote = get().anecdotes.find((anecdote) => anecdote.id === id);
@@ -36,8 +38,10 @@ const useAnecdoteStore = create((set, get) => ({
           bendAnecdote.id === id ? updatedAnecdote : bendAnecdote,
         ),
       }));
+      get().actions.setNotification(`you voted '${updatedAnecdote.content}'`);
     },
     setFilter: (value) => set(() => ({ filter: value })),
+    setNotification: (value) => set(() => ({ notification: value })),
   },
 }));
 
@@ -50,11 +54,15 @@ export const useAnecdotes = () =>
     ),
   );
 
+export const useNotification = () =>
+  useAnecdoteStore((state) => state.notification);
+
 export const useFilter = () => useAnecdoteStore((state) => state.filter);
 
 export const useVotes = () =>
   useAnecdoteStore((state) =>
     state.anecdotes.reduce((acc, anecdote) => acc + anecdote.votes, 0),
   );
+
 export const useAnecdoteActions = () =>
   useAnecdoteStore((state) => state.actions);
