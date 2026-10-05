@@ -1,6 +1,8 @@
 import { vi, describe, it, expect, beforeEach } from 'vitest';
-import { renderHook, act } from '@testing-library/react';
+import { renderHook, act, render, screen } from '@testing-library/react';
 import anecdotesService from './services/anecdotes';
+import AnecdoteList from './components/AnecdoteList';
+
 import {
   useAnecdoteStore,
   useAnecdotes,
@@ -44,4 +46,6 @@ describe('useAnecdoteStore', () => {
     const result = useAnecdoteStore.getState().anecdotes;
     expect(result).toEqual(mockAnecdotes);
   });
+
+
 });
