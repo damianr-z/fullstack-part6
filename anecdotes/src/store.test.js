@@ -1,7 +1,7 @@
 import { vi, describe, it, expect, beforeEach } from 'vitest';
 import { renderHook, act } from '@testing-library/react';
 import anecdotesService from './services/anecdotes';
-import  {
+import {
   useAnecdoteStore,
   useAnecdotes,
   useNotification,
@@ -39,13 +39,9 @@ describe('useAnecdoteStore', () => {
     ];
     anecdotesService.getAll.mockResolvedValue(mockAnecdotes);
 
-    const { result } = renderHook(() => useAnecdoteActions());
+    await useAnecdoteStore.getState().actions.initialize();
 
-    await act(async () => {
-      await result.current.initialize();
-    });
-
-    const { result: anecdotesResult } = renderHook(() => useAnecdotes());
-    expect(anecdotesResult.current).toEqual(mockAnecdotes);
+    const result = useAnecdoteStore.getState().anecdotes;
+    expect(result).toEqual(mockAnecdotes);
   });
 });
