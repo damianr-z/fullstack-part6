@@ -3,6 +3,10 @@ name: Anecdotes tests
 on:
   push:
     branches: [main]
+    paths:
+      - 'anecdotes/**'
+      - 'anecdotes-tests/**'
+      - '.github/workflows/anecdotes-tests.yaml'
 
 jobs:
   test:

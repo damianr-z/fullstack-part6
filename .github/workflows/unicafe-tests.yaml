@@ -3,6 +3,10 @@ name: Unicafe tests
 on:
   push:
     branches: [main]
+    paths:
+      - 'unicafe/**'
+      - 'unicafe-tests/**'
+      - '.github/workflows/unicafe-tests.yaml'
 
 jobs:
   test:
