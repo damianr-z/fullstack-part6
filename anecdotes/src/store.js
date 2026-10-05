@@ -73,8 +73,6 @@ const useVotes = () =>
 
 const useAnecdoteActions = () => useAnecdoteStore((state) => state.actions);
 
-
-
 export {
   useAnecdoteStore, 
   useAnecdotes,
