@@ -9,12 +9,12 @@
     {
       "content": "The first 90 percent of the code accounts for the first 90 percent of the development time...The remaining 10 percent of the code accounts for the other 90 percent of the development time.",
       "id": "69581",
-      "votes": 12
+      "votes": 21
     },
     {
       "content": "Any fool can write code that a computer can understand. Good programmers write code that humans can understand.",
       "id": "36975",
-      "votes": 1
+      "votes": 2
     },
     {
       "id": "25170"
@@ -22,20 +22,25 @@
     {
       "content": "Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.",
       "id": "98312",
-      "votes": 0
+      "votes": 1
     },
     {
       "id": "e19ea878-1282-4e3a-8cd7-ddf343d0c397"
     },
     {
       "content": "hello",
-      "votes": 0,
+      "votes": 1,
       "id": "62d26682-ff88-48fc-bf44-8dea5fcf3c88"
     },
     {
       "content": "anonther new Tanstack anecdote",
-      "votes": 2,
+      "votes": 3,
       "id": "50375fe2-770f-4963-a012-3d130745322d"
+    },
+    {
+      "content": "A new contexted anecdote",
+      "votes": 1,
+      "id": "8de2556e-40b1-4dc3-9faa-57733eab1511"
     }
   ]
 }
