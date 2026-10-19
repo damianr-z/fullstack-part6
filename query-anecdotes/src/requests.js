@@ -21,6 +21,10 @@ export const createAnecdote = async (newAnecdote) => {
     throw new Error('failed to create note');
   }
 
+  if (response.status === 400) {
+    throw new Error('bad request');
+  }
+
   return await response.json();
 };
 

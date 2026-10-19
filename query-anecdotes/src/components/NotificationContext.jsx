@@ -10,10 +10,20 @@ export const NotificationContextProvider = (props) => {
     setMessage(`New anecdote added: "${content}"`);
   const voteNotification = (content) =>
     setMessage(`Anecdote "${content}" voted`);
+  const clearNotification = () => setMessage(null);
+  const shortMessageError = (content) =>
+    setMessage('Too short anecdote, must have length 5 or more');
 
   return (
     <NotificationContext.Provider
-      value={{ message, setMessage, newAnecdoteNotification, voteNotification }}
+      value={{
+        message,
+        setMessage,
+        newAnecdoteNotification,
+        voteNotification,
+        clearNotification,
+        shortMessageError,
+      }}
     >
       {props.children}
     </NotificationContext.Provider>
