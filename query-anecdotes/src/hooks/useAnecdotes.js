@@ -1,4 +1,4 @@
-import { getAnecdotes, createAnecdote } from '../requests';
+import { getAnecdotes, createAnecdote, votedAnecdote } from '../requests';
 import { useQuery, useQueryClient, useMutation } from '@tanstack/react-query';
 
 export const useAnecdotes = () => {
@@ -19,10 +19,22 @@ export const useAnecdotes = () => {
     },
   });
 
+  const updateAnecdoteVotes = useMutation({
+    mutationFn: votedAnecdote,
+    onSuccess: (updatedAnecdote) => {
+      queryClient.setQueryData(['anecdotes'], (anecdotes) =>
+        anecdotes.map((anecdote) =>
+          anecdote.id === updatedAnecdote.id ? updatedAnecdote : anecdote,
+        ),
+      );
+    },
+  });
+
   return {
     isPending,
     isError,
     data,
     addAnecdote: newAnecdoteMutation.mutate,
+    addVote: updateAnecdoteVotes.mutate,
   };
 };
