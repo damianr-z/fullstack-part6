@@ -13,19 +13,19 @@ const initialAnecdotes = [
 // backend must be reset through its own API instead of by rewriting the
 // file on disk.
 const resetDb = async ({ request }) => {
-  const response = await request.get("http://localhost:3001/anecdotes")
+  const response = await request.get("http://localhost:3000/anecdotes")
   const current = await response.json()
 
   for (const anecdote of current) {
-    await request.delete(`http://localhost:3001/anecdotes/${anecdote.id}`)
+    await request.delete(`http://localhost:3000/anecdotes/${anecdote.id}`)
   }
 
   for (const anecdote of initialAnecdotes) {
-    const created = await request.post("http://localhost:3001/anecdotes", {
+    const created = await request.post("http://localhost:3000/anecdotes", {
       data: { content: anecdote.content },
     })
     const { id } = await created.json()
-    await request.put(`http://localhost:3001/anecdotes/${id}`, {
+    await request.put(`http://localhost:3000/anecdotes/${id}`, {
       data: { id, content: anecdote.content, votes: anecdote.votes },
     })
   }
