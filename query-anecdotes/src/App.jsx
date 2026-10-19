@@ -3,7 +3,8 @@ import AnecdoteForm from './components/AnecdoteForm';
 import Notification from './components/Notification';
 
 const App = () => {
-  const { isPending, isError, data, addVote } = useAnecdotes();
+  const { isPending, isError, data, addVote, addAnecdote } =
+    useAnecdotes();
 
   const handleVote = (anecdote) => {
     addVote(anecdote);
@@ -24,7 +25,7 @@ const App = () => {
       <h3>Anecdote app</h3>
 
       <Notification />
-      <AnecdoteForm />
+      <AnecdoteForm addAnecdote={addAnecdote} />
 
       {anecdotes.map((anecdote) => (
         <div key={anecdote.id}>

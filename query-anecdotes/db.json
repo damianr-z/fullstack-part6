@@ -31,6 +31,11 @@
       "content": "hello",
       "votes": 0,
       "id": "62d26682-ff88-48fc-bf44-8dea5fcf3c88"
+    },
+    {
+      "content": "anonther new Tanstack anecdote",
+      "votes": 2,
+      "id": "50375fe2-770f-4963-a012-3d130745322d"
     }
   ]
 }
