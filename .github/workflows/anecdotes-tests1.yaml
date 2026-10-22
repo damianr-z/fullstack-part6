@@ -18,7 +18,7 @@ jobs:
           node-version: 24
 
       - name: Install app dependencies
-        run: npm install
+        run: npm ci
         working-directory: query-anecdotes
 
       - name: Install test dependencies
