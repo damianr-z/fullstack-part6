@@ -1,56 +1,34 @@
 {
   "anecdotes": [
     {
-      "id": "47145"
+      "id": "3a25e8fb-f1c2-4d9e-91e6-8ae7172ae6bf",
+      "content": "Make it work, then make it fast",
+      "votes": 0
     },
     {
-      "id": "21149"
-    },
-    {
-      "content": "The first 90 percent of the code accounts for the first 90 percent of the development time...The remaining 10 percent of the code accounts for the other 90 percent of the development time.",
-      "id": "69581",
-      "votes": 21
-    },
-    {
-      "content": "Any fool can write code that a computer can understand. Good programmers write code that humans can understand.",
-      "id": "36975",
-      "votes": 2
-    },
-    {
-      "id": "25170"
-    },
-    {
-      "content": "Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.",
-      "id": "98312",
+      "id": "da257f9e-1545-49f9-856e-0a8efde315b7",
+      "content": "There are two hard things in computer science",
       "votes": 3
     },
     {
-      "id": "e19ea878-1282-4e3a-8cd7-ddf343d0c397"
+      "id": "135cbd05-a88d-4e1d-9ecf-1b7ce2baf794",
+      "content": "Untested code is broken code",
+      "votes": 3
     },
     {
-      "content": "hello",
-      "votes": 1,
-      "id": "62d26682-ff88-48fc-bf44-8dea5fcf3c88"
+      "id": "2845d417-3e25-4758-8c7c-99bf1be6ac92",
+      "content": "Simplicity is the ultimate sophistication",
+      "votes": 5
     },
     {
-      "content": "anonther new Tanstack anecdote",
-      "votes": 3,
-      "id": "50375fe2-770f-4963-a012-3d130745322d"
+      "id": "a589d30a-5f85-472f-b7be-2f1aa02a7d90",
+      "content": "Real artists ship code",
+      "votes": 7
     },
     {
-      "content": "A new contexted anecdote",
-      "votes": 1,
-      "id": "8de2556e-40b1-4dc3-9faa-57733eab1511"
-    },
-    {
-      "content": "holaaa",
+      "content": "Freshly baked wisdom",
       "votes": 0,
-      "id": "d2b42338-4ac8-49a8-aa8a-3260a45e1a78"
-    },
-    {
-      "content": "Testing custom useNotify hook",
-      "votes": 0,
-      "id": "83c8f3ab-d112-4bcf-80fe-eb64001b4933"
+      "id": "6c9c594c-c1ad-487d-b763-6b6e4494946a"
     }
   ]
 }

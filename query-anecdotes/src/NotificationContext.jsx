@@ -7,7 +7,7 @@ export const NotificationContextProvider = (props) => {
   const [message, setMessage] = useState(null);
 
   const newAnecdoteNotification = (content) =>
-    setMessage(`New anecdote added: "${content}"`);
+    setMessage(`New anecdote created: "${content}"`);
   const voteNotification = (content) =>
     setMessage(`Anecdote "${content}" voted`);
   const clearNotification = () => setMessage(null);
