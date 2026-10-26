@@ -22,7 +22,7 @@
     {
       "content": "Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.",
       "id": "98312",
-      "votes": 1
+      "votes": 3
     },
     {
       "id": "e19ea878-1282-4e3a-8cd7-ddf343d0c397"
@@ -46,6 +46,11 @@
       "content": "holaaa",
       "votes": 0,
       "id": "d2b42338-4ac8-49a8-aa8a-3260a45e1a78"
+    },
+    {
+      "content": "Testing custom useNotify hook",
+      "votes": 0,
+      "id": "83c8f3ab-d112-4bcf-80fe-eb64001b4933"
     }
   ]
 }

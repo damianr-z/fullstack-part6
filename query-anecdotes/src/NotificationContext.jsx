@@ -11,7 +11,7 @@ export const NotificationContextProvider = (props) => {
   const voteNotification = (content) =>
     setMessage(`Anecdote "${content}" voted`);
   const clearNotification = () => setMessage(null);
-  const shortMessageError = (content) =>
+  const shortMessageError = () =>
     setMessage('Too short anecdote, must have length 5 or more');
 
   return (

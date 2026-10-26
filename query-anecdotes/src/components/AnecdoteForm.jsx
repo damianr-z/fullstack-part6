@@ -1,9 +1,7 @@
-import { useContext } from 'react';
-import NotificationContext from './NotificationContext';
+import useNotify from '../hooks/useNotify';
 
 const AnecdoteForm = ({ addAnecdote }) => {
-  const { newAnecdoteNotification, shortMessageError } =
-    useContext(NotificationContext);
+  const { newAnecdoteNotification, shortMessageError } = useNotify();
 
   const onCreate = (event) => {
     event.preventDefault();

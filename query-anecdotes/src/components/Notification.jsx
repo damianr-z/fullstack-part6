@@ -1,9 +1,8 @@
-import { useContext, useEffect } from 'react';
-import NotificationContext from './NotificationContext';
+import { useEffect } from 'react';
+import useNotify from '../hooks/useNotify';
 
 const Notification = () => {
-  const { message, setMessage, clearNotification } =
-    useContext(NotificationContext);
+  const { message, clearNotification } = useNotify();
 
   const style = {
     border: 'solid',
@@ -19,7 +18,7 @@ const Notification = () => {
       }, 5000);
       return () => clearTimeout(timer);
     }
-  }, [message]);
+  }, [message, clearNotification]);
 
   return message ? (
     <div data-testid="notification" style={style}>
