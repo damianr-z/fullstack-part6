@@ -3,6 +3,12 @@ name: Query anecdotes tests 1
 on:
   push:
     branches: [main]
+    paths:
+      - 'query-anecdotes/**'
+      - 'query-anecdotes-tests/tests/anecdotes.spec.js'
+      - 'query-anecdotes-tests/playwright.config.js'
+      - 'query-anecdotes-tests/package*.json'
+      - '.github/workflows/anecdotes-tests1.yaml'
 
 jobs:
   test:
@@ -18,7 +24,7 @@ jobs:
           node-version: 24
 
       - name: Install app dependencies
-        run: npm install
+        run: npm ci
         working-directory: query-anecdotes
 
       - name: Install test dependencies

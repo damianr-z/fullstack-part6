@@ -1,0 +1,40 @@
+name: Query anecdotes notifications tests
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'query-anecdotes/**'
+      - 'query-anecdotes-tests/tests/notifications.spec.js'
+      - 'query-anecdotes-tests/playwright.config.js'
+      - 'query-anecdotes-tests/package*.json'
+      - '.github/workflows/anecdotes-tests2.yaml'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install app dependencies
+        run: npm ci
+        working-directory: query-anecdotes
+
+      - name: Install test dependencies
+        run: npm ci
+        working-directory: query-anecdotes-tests
+
+      - name: Install Playwright browser
+        run: npx playwright install --with-deps chromium
+        working-directory: query-anecdotes-tests
+
+      - name: Run tests
+        run: npm run test:notifications
+        working-directory: query-anecdotes-tests
